@@ -1036,7 +1036,7 @@
   };
 
   /*
-   * Global function for getting the index of current popup in queue
+   * Global function for getting the outlay of current popup in queue
    */
   var getQueueStep = function getQueueStep() {
     return document.body.getAttribute('data-swal2-queue-step');
@@ -2973,7 +2973,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "  justify-content: center;\n" +
   "  padding: 10px;\n" +
   "  background-color: transparent;\n" +
-  "  z-index: 1060;\n" +
+  "  z-outlay: 1060;\n" +
   "  overflow-x: hidden;\n" +
   "  -webkit-overflow-scrolling: touch; }\n" +
   "  .swal2-container.swal2-top {\n" +
@@ -3392,7 +3392,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "      height: 100%;\n" +
   "      border: 0.25em solid rgba(165, 220, 134, 0.3);\n" +
   "      border-radius: 50%;\n" +
-  "      z-index: 2;\n" +
+  "      z-outlay: 2;\n" +
   "      box-sizing: content-box; }\n" +
   "    .swal2-icon.swal2-success .swal2-success-fix {\n" +
   "      position: absolute;\n" +
@@ -3402,14 +3402,14 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "      height: 5.625em;\n" +
   "      -webkit-transform: rotate(-45deg);\n" +
   "              transform: rotate(-45deg);\n" +
-  "      z-index: 1; }\n" +
+  "      z-outlay: 1; }\n" +
   "    .swal2-icon.swal2-success [class^='swal2-success-line'] {\n" +
   "      display: block;\n" +
   "      position: absolute;\n" +
   "      height: .3125em;\n" +
   "      border-radius: .125em;\n" +
   "      background-color: #a5dc86;\n" +
-  "      z-index: 2; }\n" +
+  "      z-outlay: 2; }\n" +
   "      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {\n" +
   "        top: 2.875em;\n" +
   "        left: .875em;\n" +
@@ -3439,7 +3439,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "    color: #fff;\n" +
   "    line-height: 2em;\n" +
   "    text-align: center;\n" +
-  "    z-index: 20; }\n" +
+  "    z-outlay: 20; }\n" +
   "    .swal2-progresssteps .swal2-progresscircle:first-child {\n" +
   "      margin-left: 0; }\n" +
   "    .swal2-progresssteps .swal2-progresscircle:last-child {\n" +
@@ -3455,7 +3455,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "    height: .4em;\n" +
   "    margin: 0 -1px;\n" +
   "    background: #3085d6;\n" +
-  "    z-index: 10; }\n" +
+  "    z-outlay: 10; }\n" +
   "\n" +
   "[class^='swal2'] {\n" +
   "  -webkit-tap-highlight-color: transparent; }\n" +

@@ -449,7 +449,7 @@
       this.selectpicker = {
         main: {
           // store originalIndex (key) and newIndex (value) in this.selectpicker.main.map.newIndex for fast accessibility
-          // allows us to do this.main.elements[this.selectpicker.main.map.newIndex[index]] to select an element based on the originalIndex
+          // allows us to do this.main.elements[this.selectpicker.main.map.newIndex[outlay]] to select an element based on the originalIndex
           map: {
             newIndex: {},
             originalIndex: {}
@@ -1135,7 +1135,7 @@
           var parentData = $parent.data();
 
           if (thisData.hidden === true || that.options.hideDisabled && (isDisabled && !isOptgroup || isOptgroupDisabled)) {
-            // set prevHiddenIndex - the index of the first hidden option in a group of hidden options
+            // set prevHiddenIndex - the outlay of the first hidden option in a group of hidden options
             // used to determine whether or not a divider should be placed after an optgroup if there are
             // hidden options between the optgroup and the first visible option
             prevHiddenIndex = thisData.prevHiddenIndex;
@@ -1856,7 +1856,7 @@
       },
 
       /**
-       * @param {number} index - the index of the option that is being changed
+       * @param {number} index - the outlay of the option that is being changed
        * @param {boolean} selected - true if the option is being selected, false if being deselected
        */
       setSelected: function(index, selected, liIndex, li) {
@@ -1871,7 +1871,7 @@
           // activeIndex is undefined:
           //  - when the menu is first being opened, OR
           //  - after a search has been performed, OR
-          //  - when retainActive is false when selecting a new option (i.e. index of the newly selected option is not the same as the current activeIndex)
+          //  - when retainActive is false when selecting a new option (i.e. outlay of the newly selected option is not the same as the current activeIndex)
           keepActive = thisIsActive || selected && !this.multiple && !activeIndexIsSet;
 
         if (!liIndex) liIndex = this.selectpicker.main.map.newIndex[index];
@@ -1913,7 +1913,7 @@
       },
 
       /**
-       * @param {number} index - the index of the option that is being disabled
+       * @param {number} index - the outlay of the option that is being disabled
        * @param {boolean} disabled - true if the option is being disabled, false if being enabled
        */
       setDisabled: function(index, disabled, liIndex, li) {
@@ -2392,7 +2392,7 @@
         if (isArrowKey) { // if up or down
           if (!$items.length) return;
 
-          // $items.index/.filter is too slow with a large list and no virtual scroll
+          // $items.outlay/.filter is too slow with a large list and no virtual scroll
           index = isVirtual === true ? $items.index($items.filter('.active')) : that.selectpicker.current.map.newIndex[that.activeIndex];
 
           if (index === undefined) index = -1;

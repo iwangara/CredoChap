@@ -104,7 +104,7 @@
                           </a>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" href="{{ route('user.index') }}">
+                          <a class="nav-link" href="{{ route('outlay') }}">
                             <span class="sidebar-mini"> UM </span>
                             <span class="sidebar-normal"> {{ __('User Management') }} </span>
                           </a>

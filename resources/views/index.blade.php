@@ -1,66 +1,6 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="scroll-behavior: smooth;">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('CredoChap') }}</title>
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link href="{{ asset('index') }}/css/index.css?v=2.1.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
-</head>
-<body class="landing-page sidebar-collapse">
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-        <div class="navbar-translate">
-            <a style="color: purple; font-weight: bold;" class="navbar-brand" href="{{url('/')}}">
-                {{ __('CredoChap') }} </a>
-            <button style="color: purple;" class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span  class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a style="color: purple;" href="tel:+254-732-992-982" class="nav-link">
-                        <i class="material-icons">call</i> +254 732 992 982
+@extends('layouts.customer', ['class' => 'landing-page sidebar-collapse'])
 
-                    </a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a style="color: purple;" class="nav-link" href="#howto">
-                        <i class="material-icons">help</i> How to
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a style="color: purple;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a style="color: purple;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-                        <i class="fa fa-facebook-square"></i>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
+@section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('material') }}/img/backg.svg');padding-bottom: 5em;
     background-position: center center;">
     <div class="container">
@@ -79,7 +19,81 @@
 
 <div class="main main-raised">
     <div class="container">
-        <div class="section text-center" id="howto">
+        <div class="section section-contacts" id="buy" style="padding-bottom:1px;">
+            <div class="row">
+
+                <div  class="col-md-4">
+                    <h2 class="text-center title">BUY AIRTIME</h2>
+                    <h4 class="text-center description">Buy Airtel airtime from Mpesa instantly & at no extra cost.</h4>
+                </div>
+                {{--                <div class="col-md-1">--}}
+                {{--                    <div class="hr">--}}
+                {{--                        <div class="sep">--}}
+
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                <div  class="col-md-8 ">
+                    {{--                        <h2 class="text-center title">Fill this form to get started</h2>--}}
+                    <form class="contact-form" method="POST" action="{{route('confirm')}}"  autocomplete="off" class="form-horizontal">
+                        @csrf
+                        @method('post')
+                        <div class="card ">
+                            <div class="card-header card-header-success">
+
+
+
+                                <h4 class="card-title">{{ __('Fill this form to get started') }}</h4>
+                                <p class="card-category"></p>
+                            </div>
+                            <div class="card-body ">
+                                <div class="form-group">
+                                    <label for="amount" class="bmd-label-floating">Amount of airtime you want to buy</label>
+                                    <input type="number" id="amount" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" placeholder="Amount" required="true" aria-required="true"/>
+                                    @if ($errors->has('amount'))
+                                        <span id="amount-error" class="error text-danger"
+                                              for="amount">{{ $errors->first('amount') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="saf" class="bmd-label-floating">Mpesa Phone Number</label>
+                                    <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
+
+                                    @if ($errors->has('saf'))
+                                        <span id="saf-error" class="error text-danger"
+                                              for="saf">{{ $errors->first('saf') }}</span>
+                                    @endif
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="airtel" class="bmd-label-floating">Airtel Phone Number</label>
+                                    <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" required="true" aria-required="true"/>
+                                    @if ($errors->has('airtel'))
+                                        <span id="airtel-error" class="error text-danger"
+                                              for="airtel">{{ $errors->first('airtel') }}</span>
+                                    @endif
+                                </div>
+                                <div class="card-footer ml-auto mr-auto text-center">
+                                    <button type="submit" id="continue" class="btn btn-danger btn-raised">{{ __('Continue') }}</button>
+                                </div>
+                                {{--                                    <div class="row">--}}
+                                {{--                                <div class="col-md-4 ml-auto mr-auto text-center">--}}
+                                {{--                                    <button class="btn btn-danger btn-raised">--}}
+                                {{--                                        Continue--}}
+                                {{--                                    </button>--}}
+                                {{--                                </div>--}}
+                                {{--                            </div>--}}
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="section text-center" id="howto" style="padding-top:1px;" >
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
                     <h2 class="title">Buy airtime in 3 easy steps</h2>
@@ -126,174 +140,8 @@
             </div>
         </div>
 
-        <div class="section section-contacts" id="buy">
-            <div class="row">
 
-                    <div  class="col-md-4">
-                        <h2 class="text-center title">BUY AIRTIME</h2>
-                        <h4 class="text-center description">Buy Airtel airtime from Mpesa instantly & at no extra cost.</h4>
-                    </div>
-{{--                <div class="col-md-1">--}}
-{{--                    <div class="hr">--}}
-{{--                        <div class="sep">--}}
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-                    <div  class="col-md-8 ">
-{{--                        <h2 class="text-center title">Fill this form to get started</h2>--}}
-                        <form class="contact-form" method="POST" action="{{route('confirm')}}"  autocomplete="off" class="form-horizontal">
-                            @csrf
-                            @method('post')
-                            <div class="card ">
-                                <div class="card-header card-header-success">
-
-
-
-                                    <h4 class="card-title">{{ __('Fill this form to get started') }}</h4>
-                                    <p class="card-category"></p>
-                                </div>
-                                <div class="card-body ">
-                                    <div class="form-group">
-                                        <label for="amount" class="bmd-label-floating">Amount of airtime you want to buy</label>
-                                        <input type="number" id="amount" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" placeholder="Amount" required="true" aria-required="true"/>
-                                        @if ($errors->has('amount'))
-                                            <span id="amount-error" class="error text-danger"
-                                                  for="amount">{{ $errors->first('amount') }}</span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="saf" class="bmd-label-floating">Mpesa Phone Number</label>
-                                        <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
-
-                                        @if ($errors->has('saf'))
-                                            <span id="saf-error" class="error text-danger"
-                                                  for="saf">{{ $errors->first('saf') }}</span>
-                                        @endif
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="airtel" class="bmd-label-floating">Airtel Phone Number</label>
-                                        <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" required="true" aria-required="true"/>
-                                        @if ($errors->has('airtel'))
-                                            <span id="airtel-error" class="error text-danger"
-                                                  for="airtel">{{ $errors->first('airtel') }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="card-footer ml-auto mr-auto text-center">
-                                        <button type="submit" id="continue" class="btn btn-danger btn-raised">{{ __('Continue') }}</button>
-                                    </div>
-{{--                                    <div class="row">--}}
-{{--                                <div class="col-md-4 ml-auto mr-auto text-center">--}}
-{{--                                    <button class="btn btn-danger btn-raised">--}}
-{{--                                        Continue--}}
-{{--                                    </button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-
-            </div>
-        </div>
     </div>
 </div>
 
-<style>
-    .sep {
-    }
-
-
-    .hr {width:2px;
-        height:350px;
-        background-color:#DDDDDD;
-        position:inherit;
-        top:0px;
-        /*left:40px;*/
-        z-index:10;}
-
-    @media only screen and (max-width: 999px) {.hr {
-        width: 100%;
-        height: 2px;}
-
-    }
-</style>
-
-<footer class="footer footer-default">
-    <div class="container">
-        <nav class="float-left">
-            <ul>
-                <li>
-                    <a href="tel:+254-732-992-982">
-                        Help Line: +254 732 992 982
-
-                    </a>
-                </li>
-
-                <li>
-                    <a href="mailto:someone@example.com">
-                        Email: someone@example.com
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="copyright float-left">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            <a href="https://www.mitchsofts.com/" target="_blank">Mitchsofts</a>
-        </div>
-    </div>
-</footer>
-<!--   Core JS Files   -->
-<script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
-<script src="{{ asset('material') }}/js/core/popper.min.js"></script>
-<script src="{{ asset('material') }}/js/core/bootstrap-material-design.min.js"></script>
-<script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!-- Plugin for the momentJs  -->
-<script src="{{ asset('material') }}/js/plugins/moment.min.js"></script>
-<!--  Plugin for Sweet Alert -->
-<script src="{{ asset('material') }}/js/plugins/sweetalert2.js"></script>
-<!-- Forms Validations Plugin -->
-<script src="{{ asset('material') }}/js/plugins/jquery.validate.min.js"></script>
-<!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-<script src="{{ asset('material') }}/js/plugins/jquery.bootstrap-wizard.js"></script>
-<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="{{ asset('material') }}/js/plugins/bootstrap-selectpicker.js"></script>
-<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-<script src="{{ asset('material') }}/js/plugins/bootstrap-datetimepicker.min.js"></script>
-<!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-<script src="{{ asset('material') }}/js/plugins/jquery.dataTables.min.js"></script>
-<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="{{ asset('material') }}/js/plugins/bootstrap-tagsinput.js"></script>
-<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{{ asset('material') }}/js/plugins/jasny-bootstrap.min.js"></script>
-<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script src="{{ asset('material') }}/js/plugins/fullcalendar.min.js"></script>
-<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-<script src="{{ asset('material') }}/js/plugins/jquery-jvectormap.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{{ asset('material') }}/js/plugins/nouislider.min.js"></script>
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-<!-- Library for adding dinamically elements -->
-<script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>
-<!-- Chartist JS -->
-<script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ asset('material') }}/demo/demo.js"></script>
-<script src="{{ asset('material') }}/js/settings.js"></script>
-@stack('js')
-</body>
-</html>
+@endsection

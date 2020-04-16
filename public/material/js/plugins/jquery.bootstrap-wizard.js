@@ -232,7 +232,7 @@
     };
 
     var innerTabClick = function(e) {
-      // Get the index of the clicked tab
+      // Get the outlay of the clicked tab
       var $ul = $navigation.find(baseItemSelector);
       var clickedIndex = $ul.index($(e.currentTarget).parent(baseItemSelector));
       var $clickedTab = $($ul[clickedIndex]);
