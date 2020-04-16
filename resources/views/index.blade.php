@@ -26,13 +26,7 @@
                     <h2 class="text-center title">BUY AIRTIME</h2>
                     <h4 class="text-center description">Buy Airtel airtime from Mpesa instantly & at no extra cost.</h4>
                 </div>
-                {{--                <div class="col-md-1">--}}
-                {{--                    <div class="hr">--}}
-                {{--                        <div class="sep">--}}
 
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
                 <div  class="col-md-8 ">
                     {{--                        <h2 class="text-center title">Fill this form to get started</h2>--}}
                     <form class="contact-form" method="POST" action="{{route('confirm')}}"  autocomplete="off" class="form-horizontal">
@@ -49,7 +43,7 @@
                             <div class="card-body ">
                                 <div class="form-group">
                                     <label for="amount" class="bmd-label-floating">Amount of airtime you want to buy</label>
-                                    <input type="number" id="amount" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" placeholder="Amount" required="true" aria-required="true"/>
+                                    <input type="number" id="amount" min="10" max="70000" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" value="{{ old('amount') }}" placeholder="Amount" required="true" aria-required="true"/>
                                     @if ($errors->has('amount'))
                                         <span id="amount-error" class="error text-danger"
                                               for="amount">{{ $errors->first('amount') }}</span>
@@ -58,7 +52,7 @@
 
                                 <div class="form-group">
                                     <label for="saf" class="bmd-label-floating">Mpesa Phone Number</label>
-                                    <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
+                                    <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" value="{{ old('saf') }}" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
 
                                     @if ($errors->has('saf'))
                                         <span id="saf-error" class="error text-danger"
@@ -68,7 +62,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="airtel" class="bmd-label-floating">Airtel Phone Number</label>
-                                    <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" required="true" aria-required="true"/>
+                                    <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" value="{{ old('airtel') }}" required="true" aria-required="true"/>
                                     @if ($errors->has('airtel'))
                                         <span id="airtel-error" class="error text-danger"
                                               for="airtel">{{ $errors->first('airtel') }}</span>
