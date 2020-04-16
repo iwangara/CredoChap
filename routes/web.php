@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Auth::routes((['register' => false]));
 
 Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
@@ -61,3 +61,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
+
+Route::post('/confirm','AirtimeController@confirm')->name('confirm');

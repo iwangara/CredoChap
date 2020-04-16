@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="scroll-behavior: smooth;">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
 </head>
-<body class="landing-page sidebar-collapse">
+<body class="profile-page sidebar-collapse">
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
@@ -61,168 +61,37 @@
     </div>
 </nav>
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('material') }}/img/backg.svg');padding-bottom: 5em;
-    background-position: center center;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1 class="title">Buy Airtel Airtime From Mpesa.</h1>
-                <h4>Buy Airtel airtime from the comfort of your office or home using Mpesa.</h4>
-                <br>
-                <a href="#buy"  class="btn btn-primary btn-raised btn-lg">
-                    <i class="add_shopping_cart"></i> Buy Now
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
+
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('material') }}/img/success.svg');background-position: center center;"></div>
 <div class="main main-raised">
-    <div class="container">
-        <div class="section text-center" id="howto">
+    <div class="profile-content">
+        <div class="container">
             <div class="row">
-                <div class="col-md-8 ml-auto mr-auto">
-                    <h2 class="title">Buy airtime in 3 easy steps</h2>
-                    <h5 class="description">Hustle Free.</h5>
-                </div>
-            </div>
-            <div class="features">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="icon icon-info">
-                                <i class="material-icons">create</i>
-                            </div>
-                            <h4 class="info-title">1. Fill the form</h4>
-                            <p>Fill form and confirm details.</p>
+                <div class="col-md-6 ml-auto mr-auto">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="{{ asset('material') }}/img/order_confirmed.svg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="icon icon-success">
-                                <i class="material-icons">mobile_screen_share</i>
+                        <div class="name">
+                            <h3 class="title text-warning">Success!</h3>
+                            <h6>Your transaction has been processed successfully.</h6>
+                            <h6>Meanwhile.....share the message below to help us get the word out.</h6>
+                            <div class="description text-center">
+                                <p>I topped up my airtime instantly at <a href="#">CredoChap</a>.
+                                    You should try it too.</p>
                             </div>
-                            <h4 class="info-title">2. Pay</h4>
-                            <p>Make Mpesa Payment.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="icon icon-danger">
-                                <i class="material-icons">mobile_friendly</i>
-                            </div>
-                            <h4 class="info-title">3. Phone number topped up</h4>
-                            <p>Receive Airtel airtime top up instantly.</p>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.credochap.co.ke%2Fbuyairtime%2F" target="_blank" class="btn btn-just-icon btn-link btn-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/intent/tweet?text=I%20topped%20up%20my%20airtime%20instantly%20at%20https%3A%2F%2Fwww.credochap.co.ke%2Fbuyairtime.%20You%20should%20try%20it%20too.%20" target="_blank" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="whatsapp://send?text=I%20topped%20up%20my%20airtime%20instantly%20at%20https%3A%2F%2Fwww.credochap.co.ke%2Fbuyairtime.%20You%20should%20try%20it%20too.%20" target="_blank" class="btn btn-just-icon btn-link btn-whatsapp"><i class="fa fa-whatsapp"></i></a>
+
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 ml-auto mr-auto text-center">
-                        <a href="#buy"  class="btn btn-warning btn-raised">
-                            <i class="add_shopping_cart"></i> Buy Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section section-contacts" id="buy">
-            <div class="row">
-
-                    <div  class="col-md-4">
-                        <h2 class="text-center title">BUY AIRTIME</h2>
-                        <h4 class="text-center description">Buy Airtel airtime from Mpesa instantly & at no extra cost.</h4>
-                    </div>
-{{--                <div class="col-md-1">--}}
-{{--                    <div class="hr">--}}
-{{--                        <div class="sep">--}}
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-                    <div  class="col-md-8 ">
-{{--                        <h2 class="text-center title">Fill this form to get started</h2>--}}
-                        <form class="contact-form" method="POST" action="{{route('confirm')}}"  autocomplete="off" class="form-horizontal">
-                            @csrf
-                            @method('post')
-                            <div class="card ">
-                                <div class="card-header card-header-success">
-
-
-
-                                    <h4 class="card-title">{{ __('Fill this form to get started') }}</h4>
-                                    <p class="card-category"></p>
-                                </div>
-                                <div class="card-body ">
-                                    <div class="form-group">
-                                        <label for="amount" class="bmd-label-floating">Amount of airtime you want to buy</label>
-                                        <input type="number" id="amount" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" placeholder="Amount" required="true" aria-required="true"/>
-                                        @if ($errors->has('amount'))
-                                            <span id="amount-error" class="error text-danger"
-                                                  for="amount">{{ $errors->first('amount') }}</span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="saf" class="bmd-label-floating">Mpesa Phone Number</label>
-                                        <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
-
-                                        @if ($errors->has('saf'))
-                                            <span id="saf-error" class="error text-danger"
-                                                  for="saf">{{ $errors->first('saf') }}</span>
-                                        @endif
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="airtel" class="bmd-label-floating">Airtel Phone Number</label>
-                                        <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" required="true" aria-required="true"/>
-                                        @if ($errors->has('airtel'))
-                                            <span id="airtel-error" class="error text-danger"
-                                                  for="airtel">{{ $errors->first('airtel') }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="card-footer ml-auto mr-auto text-center">
-                                        <button type="submit" id="continue" class="btn btn-danger btn-raised">{{ __('Continue') }}</button>
-                                    </div>
-{{--                                    <div class="row">--}}
-{{--                                <div class="col-md-4 ml-auto mr-auto text-center">--}}
-{{--                                    <button class="btn btn-danger btn-raised">--}}
-{{--                                        Continue--}}
-{{--                                    </button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .sep {
-    }
-
-
-    .hr {width:2px;
-        height:350px;
-        background-color:#DDDDDD;
-        position:inherit;
-        top:0px;
-        /*left:40px;*/
-        z-index:10;}
-
-    @media only screen and (max-width: 999px) {.hr {
-        width: 100%;
-        height: 2px;}
-
-    }
-</style>
-
 <footer class="footer footer-default">
     <div class="container">
         <nav class="float-left">
