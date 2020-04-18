@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (){
     return view('index');
 });
 
 Auth::routes((['register' => false]));
 
-Route::get('/home', 'HomeController@outlay')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/home', 'HomeController@outlay')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
@@ -63,3 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::post('/confirm','AirtimeController@confirm')->name('confirm');
+Route::get('/confirm','AirtimeController@confirm')->name('confirm');
+Route::post('/pay','AirtimeController@payment')->name('pay');
+Route::get('/pay','AirtimeController@payment')->name('pay');

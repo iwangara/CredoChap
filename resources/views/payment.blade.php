@@ -15,10 +15,10 @@
                         </div>
                         <div class="name">
                             <h3 class="title">Payment</h3>
-                            <h6>Amount to pay in KES: <span style="color: red;">1000 KES</span></h6>
+                            <h6>Amount to pay in KES: <span style="color: red;">{{$amount ?? ''}} KES</span></h6>
                             <h6>Ensure your mobile device is within reach. A popup will prompt you to enter your <span style="color: red;">Mpesa PIN</span> on your mobile device.</h6>
-                            <h6>If the Mpesa PIN screen doesn't show automatically; <span style="color: red;"><a
-                                        href="">Click here</a></span></h6>
+{{--                            <h6>If the Mpesa PIN screen doesn't show automatically; <span style="color: red;"><a--}}
+{{--                                        href="">Click here</a></span></h6>--}}
                             <h6>Once you are done click 'Continue' to proceed</h6>
                             <a href="#buy"  class="btn btn-success btn-raised btn-round">
 

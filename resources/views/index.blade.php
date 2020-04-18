@@ -43,7 +43,7 @@
                             <div class="card-body ">
                                 <div class="form-group">
                                     <label for="amount" class="bmd-label-floating">Amount of airtime you want to buy</label>
-                                    <input type="number" id="amount" min="10" max="70000" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" value="{{ old('amount') }}" placeholder="Amount" required="true" aria-required="true"/>
+                                    <input type="number" id="amount" min="10" max="70000" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" value="{{ old('amount','10') }}" placeholder="Amount" required="true" aria-required="true"/>
                                     @if ($errors->has('amount'))
                                         <span id="amount-error" class="error text-danger"
                                               for="amount">{{ $errors->first('amount') }}</span>
@@ -51,8 +51,9 @@
                                 </div>
 
                                 <div class="form-group">
+
                                     <label for="saf" class="bmd-label-floating">Mpesa Phone Number</label>
-                                    <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" value="{{ old('saf') }}" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
+                                    <input id="saf" type="text" class="form-control{{ $errors->has('saf') ? ' is-invalid' : '' }}" name="saf" value="0729790289" placeholder="Mpesa Phone Number" required="true" aria-required="true"/>
 
                                     @if ($errors->has('saf'))
                                         <span id="saf-error" class="error text-danger"
@@ -62,7 +63,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="airtel" class="bmd-label-floating">Airtel Phone Number</label>
-                                    <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" value="{{ old('airtel') }}" required="true" aria-required="true"/>
+                                    <input id="airtel" type="text" class="form-control{{ $errors->has('airtel') ? ' is-invalid' : '' }}" name="airtel" placeholder="Airtel Phone Number" value="0732992982" required="true" aria-required="true"/>
                                     @if ($errors->has('airtel'))
                                         <span id="airtel-error" class="error text-danger"
                                               for="airtel">{{ $errors->first('airtel') }}</span>
