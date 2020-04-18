@@ -20,7 +20,7 @@
 {{--                            <h6>If the Mpesa PIN screen doesn't show automatically; <span style="color: red;"><a--}}
 {{--                                        href="">Click here</a></span></h6>--}}
                             <h6>Once you are done click 'Continue' to proceed</h6>
-                            <a href="#buy"  class="btn btn-success btn-raised btn-round">
+                            <a href="{{url('/success')}}"  class="btn btn-success btn-raised btn-round">
 
                                 Continue<i class="material-icons">play_arrow</i>
                             </a>

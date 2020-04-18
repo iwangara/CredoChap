@@ -111,7 +111,7 @@ class AirtimeController extends Controller
         $airtel = $request->get('airtel');
         $amount = $request->get('amount');
 
-        $expressResponse=Mpesa::express(10,'254729790289','24242524','Testing Payment');
+//        $expressResponse=Mpesa::express(10,'254729790289','24242524','Testing Payment');
         return view('payment',compact('amount'));
     }
 }
